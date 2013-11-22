@@ -25,12 +25,7 @@ switch (which) {
 // the `npm version` command.
 version = major + '.' + minor + '.' + patch;
 exec('npm version ' + version, function(error, stdout, stderr) {
-
     if (error) {
         sys.print(error);
-        return;
     }
-
-    sys.print('Success!');
-
 });
