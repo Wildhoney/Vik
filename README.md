@@ -17,5 +17,3 @@ Commands
  * Update major: `vik major`;
  * Update minor: `vik minor`;
  * Update patch: `vik patch`;
-
-<img src="http://www.gamesprays.com/images/icons/cheshire-cat-3116_preview.png" />
