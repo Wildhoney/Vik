@@ -2,12 +2,23 @@
 "use strict";
 process.title = 'vik';
 
+if (!process.argv[2]) {
+    msg('Forgot to specify major/minor/patch', 198);
+}
+
 var grunt   = require('grunt'),
     exec    = require('child_process').exec,
     sys     = require('sys'),
+    clc     = require('cli-color'),
     file    = grunt.file.readJSON('package.json'),
     version = file.version,
     which   = process.argv[2].trim();
+
+var msg = function msg(message, colour, backgroundColour) {
+    var msg = clc.xterm(colour).bgXterm(backgroundColour);
+    console.log(msg('  ' + message + '  '));
+};
+
 
 // Parse the version major.minor.patch.
 var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
@@ -25,7 +36,14 @@ switch (which) {
 // the `npm version` command.
 version = major + '.' + minor + '.' + patch;
 exec('npm version ' + version, function(error, stdout, stderr) {
-    if (error) {
-        sys.print(error);
+
+    var isNotClean = new RegExp('Git working directory not clean', 'i');
+
+    if (stderr.match(isNotClean)) {
+        msg('Git working directory is not clean.', 88, 218);
+        return;
     }
+
+    msg('Updated version to ' + version, 22, 122);
+
 });
