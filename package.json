@@ -1,6 +1,6 @@
 {
   "name": "vik",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "CLI Semver autoincrement with major, minor, and patch.",
   "main": "bin/vik",
   "scripts": {
