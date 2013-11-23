@@ -37,10 +37,16 @@ switch (which) {
 version = major + '.' + minor + '.' + patch;
 exec('npm version ' + version, function(error, stdout, stderr) {
 
-    var isNotClean = new RegExp('Git working directory not clean', 'i');
+    var notClean      = new RegExp('Git working directory not clean', 'i'),
+        alreadyExists = new RegExp('already exists', 'i');
 
-    if (stderr.match(isNotClean)) {
+    if (stderr.match(notClean)) {
         msg('Git working directory is not clean.', 88, 218);
+        return;
+    }
+
+    if (stderr.match(alreadyExists)) {
+        msg('Tag ' + version + ' already exists.', 88, 218);
         return;
     }
 
