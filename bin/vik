@@ -27,8 +27,8 @@ var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
     patch   = parseInt(parsed[3]);
 
 switch (which) {
-    case ('major'): major++; break;
-    case ('minor'): minor++; break;
+    case ('major'): major++; minor = 0; patch = 0; break;
+    case ('minor'): minor++; patch = 0; break;
     case ('patch'): patch++; break;
 }
 
