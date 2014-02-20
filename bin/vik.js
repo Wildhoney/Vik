@@ -9,9 +9,9 @@
     "use strict";
     $process.title = 'vik';
 
-// Dependencies for the messages.
-    var sys = require('sys'),
-        clc = require('cli-color');
+    // Dependencies for the messages.
+    var sys   = require('sys'),
+        clc   = require('cli-color');
 
     /**
      * @method outputMessage
@@ -33,11 +33,12 @@
 
     // All the other dependencies.
     var grunt   = require('grunt'),
-        exec    = require('child_process').exec,
+        fs      = require('fs'),
         file    = grunt.file.readJSON('package.json'),
         version = file.version,
-        which   = $process.argv[2].trim();
-
+        which   = $process.argv[2].trim(),
+        pkg     = grunt.file.readJSON('package.json'),
+        format  = require('format-json');
 
     // Parse the version major.minor.patch.
     var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
@@ -59,6 +60,8 @@
     version = major + '.' + minor + '.' + patch;
 
     // Here we go with the versioning, sunshine!
+    pkg.version = version;
+    fs.writeFile('package.json', format.plain(pkg));
     outputMessage('Updated version to ' + version, 22, 122);
     
 })(process);
