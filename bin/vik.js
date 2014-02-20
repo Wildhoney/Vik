@@ -1,54 +1,64 @@
 #!/usr/bin/env node
-"use strict";
-process.title = 'vik';
 
-if (!process.argv[2]) {
-    msg('Forgot to specify major/minor/patch', 198);
-}
+/**
+ * @module Vik
+ * @author Adam Timberlake <adam.timberlake@gmail.com>
+ */
+(function vik($process) {
 
-var grunt   = require('grunt'),
-    exec    = require('child_process').exec,
-    sys     = require('sys'),
-    clc     = require('cli-color'),
-    file    = grunt.file.readJSON('package.json'),
-    version = file.version,
-    which   = process.argv[2].trim();
+    "use strict";
+    $process.title = 'vik';
 
-var msg = function msg(message, colour, backgroundColour) {
-    var msg = clc.xterm(colour).bgXterm(backgroundColour);
-    console.log(msg('  ' + message + '  '));
-};
+// Dependencies for the messages.
+    var sys = require('sys'),
+        clc = require('cli-color');
 
+    /**
+     * @method outputMessage
+     * @param message {String}
+     * @param colour {Number}
+     * @param backgroundColour {Number}
+     * @return {void}
+     */
+    var outputMessage = function outputMessage(message, colour, backgroundColour) {
+        var outputMessage = clc.xterm(colour).bgXterm(backgroundColour);
+        console.log(outputMessage('  ' + message + '  '));
+    };
 
-// Parse the version major.minor.patch.
-var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
-    major   = parseInt(parsed[1]),
-    minor   = parseInt(parsed[2]),
-    patch   = parseInt(parsed[3]);
-
-switch (which) {
-    case ('major'): major++; minor = 0; patch = 0; break;
-    case ('minor'): minor++; patch = 0; break;
-    case ('patch'): patch++; break;
-}
-
-// Update the version with the updated value, and then execute
-// the `npm version` command.
-version = major + '.' + minor + '.' + patch;
-exec('npm version ' + version, function(error, stdout, stderr) {
-
-    var notClean      = new RegExp('Git working directory not clean', 'i'),
-        alreadyExists = new RegExp('already exists', 'i');
-
-    if (stderr.match(notClean)) {
-        msg('Git working directory is not clean.', 88, 218);
+    if (!$process.argv[2]) {
+        // We couldn't find any instruction for which value to increment.
+        outputMessage('Forgot to specify major/minor/patch', 88, 218);
         return;
     }
 
-    if (stderr.match(alreadyExists)) {
-        msg('Tag ' + version + ' already exists.', 88, 218);
-        return;
+    // All the other dependencies.
+    var grunt   = require('grunt'),
+        exec    = require('child_process').exec,
+        file    = grunt.file.readJSON('package.json'),
+        version = file.version,
+        which   = $process.argv[2].trim();
+
+
+    // Parse the version major.minor.patch.
+    var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
+        major   = parseInt(parsed[1]),
+        minor   = parseInt(parsed[2]),
+        patch   = parseInt(parsed[3]);
+
+    switch (which) {
+
+        // Which version are we going to increment?
+        case ('major'): major++; minor = 0; patch = 0; break;
+        case ('minor'): minor++; patch = 0; break;
+        case ('patch'): patch++; break;
+
     }
 
+    // Update the version with the updated value, and then execute
+    // the `npm version` command.
+    version = major + '.' + minor + '.' + patch;
 
-});
+    // Here we go with the versioning, sunshine!
+    outputMessage('Updated version to ' + version, 22, 122);
+    
+})(process);
