@@ -50,6 +50,5 @@ exec('npm version ' + version, function(error, stdout, stderr) {
         return;
     }
 
-    msg('Updated version to ' + version, 22, 122);
 
 });
