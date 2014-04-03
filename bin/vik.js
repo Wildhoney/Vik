@@ -83,8 +83,17 @@
 
             // Here we go with the versioning, sunshine!
             pkg.version = version;
-            fs.writeFile(file, format.plain(pkg));
-            outputMessage('Updated version to ' + version, 22, 122);
+
+            fs.writeFile(file, format.plain(pkg), function response(error) {
+
+                if (error) {
+                    outputMessage('Insufficient permissions to write to ' + file, 88, 218);
+                    return;
+                }
+
+                outputMessage('Updated version to ' + version, 22, 122);
+
+            });
 
         });
 
