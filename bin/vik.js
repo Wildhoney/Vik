@@ -7,13 +7,9 @@
 (function vik($process) {
 
     "use strict";
-    $process.title = 'vik';
 
-    /**
-     * @property files
-     * @type {Array}
-     */
-    var files = ['package.json', 'bower.json'];
+    // Title to use for the process.
+    $process.title = 'vik';
 
     // Dependencies for the messages.
     var sys    = require('sys'),
@@ -40,7 +36,7 @@
     }
 
     // Iterate over each file that we wish to change the version for.
-    files.forEach(function forEach(file) {
+    ['package.json', 'bower.json', 'component.json'].forEach(function forEach(file) {
 
         parent(file, function parentDirectory(directory) {
 
