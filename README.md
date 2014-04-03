@@ -10,6 +10,12 @@ Using <a href="http://semver.org/" target="_blank">Semver</a> to increment your 
 Commands
 -------------
 
- * Update major: `vik major`;
- * Update minor: `vik minor`;
- * Update patch: `vik patch`;
+ * Increment major: `vik major` or `vik major+`;
+ * Increment minor: `vik minor` or `vik minor+`;
+ * Increment patch: `vik patch`  or `vik patch+`;
+
+You can also decrement the versions with minus:
+
+ * Decrement major: `vik major-`;
+ * Decrement minor: `vik minor-`;
+ * Decrement patch: `vik patch-`;
