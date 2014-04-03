@@ -9,9 +9,17 @@
     "use strict";
     $process.title = 'vik';
 
+    /**
+     * @property files
+     * @type {Array}
+     */
+    var files = ['package.json', 'bower.json'];
+
     // Dependencies for the messages.
-    var sys   = require('sys'),
-        clc   = require('cli-color');
+    var sys    = require('sys'),
+        clc    = require('cli-color'),
+        parent = require('parentpath'),
+        path   = require('path');
 
     /**
      * @method outputMessage
@@ -31,37 +39,55 @@
         return;
     }
 
-    // All the other dependencies.
-    var grunt   = require('grunt'),
-        fs      = require('fs'),
-        file    = grunt.file.readJSON('package.json'),
-        version = file.version,
-        which   = $process.argv[2].trim(),
-        pkg     = grunt.file.readJSON('package.json'),
-        format  = require('format-json');
+    // Iterate over each file that we wish to change the version for.
+    files.forEach(function forEach(file) {
 
-    // Parse the version major.minor.patch.
-    var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
-        major   = parseInt(parsed[1]),
-        minor   = parseInt(parsed[2]),
-        patch   = parseInt(parsed[3]);
+        parent(file, function parentDirectory(directory) {
 
-    switch (which) {
+            if (!directory) {
 
-        // Which version are we going to increment?
-        case ('major'): major++; minor = 0; patch = 0; break;
-        case ('minor'): minor++; patch = 0; break;
-        case ('patch'): patch++; break;
+                // We were unable to find the file, so let's do nothing!
+                return;
 
-    }
+            }
 
-    // Update the version with the updated value, and then execute
-    // the `npm version` command.
-    version = major + '.' + minor + '.' + patch;
+            // Resolve the file to the parent directory.
+            file = directory + path.sep + file;
 
-    // Here we go with the versioning, sunshine!
-    pkg.version = version;
-    fs.writeFile('package.json', format.plain(pkg));
-    outputMessage('Updated version to ' + version, 22, 122);
+            // All the other dependencies.
+            var grunt   = require('grunt'),
+                fs      = require('fs'),
+                which   = $process.argv[2].trim(),
+                pkg     = grunt.file.readJSON(file),
+                version = pkg.version,
+                format  = require('format-json');
+
+            // Parse the version major.minor.patch.
+            var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
+                major   = parseInt(parsed[1]),
+                minor   = parseInt(parsed[2]),
+                patch   = parseInt(parsed[3]);
+
+            switch (which) {
+
+                // Which version are we going to increment?
+                case ('major'): major++; minor = 0; patch = 0; break;
+                case ('minor'): minor++; patch = 0; break;
+                case ('patch'): patch++; break;
+
+            }
+
+            // Update the version with the updated value, and then execute
+            // the `npm version` command.
+            version = major + '.' + minor + '.' + patch;
+
+            // Here we go with the versioning, sunshine!
+            pkg.version = version;
+            fs.writeFile(file, format.plain(pkg));
+            outputMessage('Updated version to ' + version, 22, 122);
+
+        });
+
+    });
     
 })(process);
