@@ -92,7 +92,7 @@
                     return;
                 }
 
-                outputMessage('Updated version to ' + version, 22, 122);
+                outputMessage('Updated version to ' + version, 22, 122 + ' in ' + path.basename(file) + ' ');
 
             });
 
