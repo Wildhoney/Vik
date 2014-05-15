@@ -24,10 +24,11 @@
     "url": "https://github.com/Wildhoney/Vik/issues"
   },
   "dependencies": {
-    "grunt": "~0.4.2",
-    "npm": "~1.3.15",
     "cli-color": "~0.2.3",
     "format-json": "~1.0.3",
+    "grunt": "~0.4.2",
+    "nopt": "^2.2.1",
+    "npm": "~1.3.15",
     "parentpath": "~0.2.0"
   },
   "bin": {

@@ -13,9 +13,16 @@
 
     // Dependencies for the messages.
     var sys    = require('sys'),
+        cmd    = require('child_process').exec,
         clc    = require('cli-color'),
         parent = require('parentpath'),
-        path   = require('path');
+        path   = require('path'),
+        nopt   = require('nopt');
+
+    // Define the options for the parameters to be passed in.
+    var options      = { tag: Boolean, push: Boolean },
+        shortOptions = { t : '--tag', p: '--push' },
+        parseOptions = nopt(options, shortOptions, $process.argv, 2);
 
     /**
      * @method outputMessage
@@ -30,10 +37,18 @@
     };
 
     if (!$process.argv[2]) {
+
         // We couldn't find any instruction for which value to increment.
         outputMessage('Forgot to specify major/minor/patch', 88, 218);
         return;
+
     }
+
+    /**
+     * @property taskOptions
+     * @type {Object}
+     */
+    var taskOptions = { tagged: false, pushed: false };
 
     // List of supported modules mapping their respective JSON configuration documents
     // to their name.
@@ -95,6 +110,19 @@
 
             // Here we go with the versioning, sunshine!
             pkg.version = version;
+
+            // Determine if we should be adding the tag to Git.
+            if (parseOptions.tag && !taskOptions.tagged) {
+                taskOptions.tagged = true;
+                outputMessage('Added Git tag version v' + version, 22, 122);
+                cmd('git tag v' + version);
+            }
+
+            // Determine if we should push the tag via Git.
+            if (parseOptions.push && !taskOptions.pushed) {
+                outputMessage('Pushed Git tag version v' + version, 22, 122);
+                cmd('git push --tags');
+            }
 
             fs.writeFile(file, format.plain(pkg), function response(error) {
 
