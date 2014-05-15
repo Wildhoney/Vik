@@ -35,8 +35,19 @@
         return;
     }
 
+    // List of supported modules mapping their respective JSON configuration documents
+    // to their name.
+    var supportedModules = [
+        { name: 'npm', document: 'package.json' },
+        { name: 'Bower', document: 'bower.json' },
+        { name: 'Component', document: 'component.json' }
+    ];
+
     // Iterate over each file that we wish to change the version for.
-    ['package.json', 'bower.json', 'component.json'].forEach(function forEach(file) {
+    supportedModules.forEach(function forEach(module) {
+
+        var name = module.name,
+            file = module.document;
 
         parent(file, function parentDirectory(directory) {
 
@@ -92,7 +103,7 @@
                     return;
                 }
 
-                outputMessage('Updated version to ' + version, 22, 122);
+                outputMessage('Updated ' + name + ' version to ' + version, 22, 122);
 
             });
 
