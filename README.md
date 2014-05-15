@@ -19,3 +19,11 @@ You can also decrement the versions with minus:
  * Decrement major: `vik major-`;
  * Decrement minor: `vik minor-`;
  * Decrement patch: `vik patch-`;
+
+Options
+-------------
+
+ * `-t`/`--tags` &ndash; Git tag the repository with the version;
+ * `-p`/`--push` &ndash; Push the Git tag to the repository;
+
+**Example:** `vik minor -tp`.
