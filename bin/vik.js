@@ -3,6 +3,7 @@
 /**
  * @module Vik
  * @author Adam Timberlake <adam.timberlake@gmail.com>
+ * @link http://github.com/Wildhoney/Vik
  */
 (function vik($process) {
 
@@ -124,7 +125,7 @@
                 cmd('git push --tags');
             }
 
-            fs.writeFile(file, format.plain(pkg), function response(error) {
+            fs.writeFile(file, format.plain(pkg), function writeFile(error) {
 
                 if (error) {
                     outputMessage('Insufficient permissions to write to ' + file, 88, 218);
