@@ -131,7 +131,7 @@
                     return;
                 }
 
-                outputMessage('Updated ' + name + ' version to ' + version, 22, 122);
+                outputMessage('Updated ' + name + ' (' + file + ') version to ' + version, 22, 122);
 
             });
 
