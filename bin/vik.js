@@ -94,14 +94,14 @@
             switch (which) {
 
                 // Which version are we going to increment?
-                case ('major'): case ('major+'): major++; minor = 0; patch = 0; break;
-                case ('minor'): case ('minor+'): minor++; patch = 0; break;
-                case ('patch'): case ('patch+'): patch++; break;
+                case ('major'): case ('major+'): case ('major++'): major++; minor = 0; patch = 0; break;
+                case ('minor'): case ('minor+'): case ('minor++'): minor++; patch = 0; break;
+                case ('patch'): case ('patch+'): case ('patch++'): patch++; break;
 
                 // Or maybe we wish to decrement instead?
-                case ('major-'): major--; minor = 0; patch = 0; break;
-                case ('minor-'): minor--; patch = 0; break;
-                case ('patch-'): patch--; break;
+                case ('major-'): case ('major--'): major--; minor = 0; patch = 0; break;
+                case ('minor-'): case ('minor--'): minor--; patch = 0; break;
+                case ('patch-'): case ('patch--'): patch--; break;
 
             }
 
