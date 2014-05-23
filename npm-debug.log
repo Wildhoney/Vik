@@ -1,0 +1,126 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.7
+3 info using node@v0.10.26
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/alexandalexa/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+13 verbose folder .
+14 info prepublish vik@0.2.7
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/alexandalexa/.npm/1f1177db-tar.lock
+17 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+18 verbose lock tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz /Users/alexandalexa/.npm/f4ff1aab-36203-0-4426250453107059-tmp-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+22 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+23 verbose tar unpack /var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+24 silly lockFile 28f09e0b-exandalexa-npm-vik-0-2-7-package tar:///Users/alexandalexa/.npm/vik/0.2.7/package
+25 verbose lock tar:///Users/alexandalexa/.npm/vik/0.2.7/package /Users/alexandalexa/.npm/28f09e0b-exandalexa-npm-vik-0-2-7-package.lock
+26 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+27 verbose lock tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz /Users/alexandalexa/.npm/f4ff1aab-36203-0-4426250453107059-tmp-tgz.lock
+28 silly gunzTarPerm modes [ '755', '644' ]
+29 silly gunzTarPerm extractEntry package.json
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm extractEntry README.md
+32 silly gunzTarPerm extractEntry bin/vik.js
+33 silly lockFile 28f09e0b-exandalexa-npm-vik-0-2-7-package tar:///Users/alexandalexa/.npm/vik/0.2.7/package
+34 silly lockFile 28f09e0b-exandalexa-npm-vik-0-2-7-package tar:///Users/alexandalexa/.npm/vik/0.2.7/package
+35 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+36 silly lockFile f4ff1aab-36203-0-4426250453107059-tmp-tgz tar:///var/folders/l6/3tj419ss403_7xyrnsn3q4dh0000gp/T/npm-25071-uYFOFQUa/1400881836203-0.4426250453107059/tmp.tgz
+37 silly lockFile 3a52ce78- .
+38 silly lockFile 3a52ce78- .
+39 silly publish { name: 'vik',
+39 silly publish   version: '0.2.7',
+39 silly publish   description: 'CLI Semver autoincrement with major, minor, and patch.',
+39 silly publish   main: 'bin/vik',
+39 silly publish   scripts: { test: 'grunt test' },
+39 silly publish   repository: { type: 'git', url: 'https://github.com/Wildhoney/Vik.git' },
+39 silly publish   keywords:
+39 silly publish    [ 'semver',
+39 silly publish      'patch',
+39 silly publish      'minor',
+39 silly publish      'major',
+39 silly publish      'versioning',
+39 silly publish      'version',
+39 silly publish      'git tag',
+39 silly publish      'version update' ],
+39 silly publish   author: { name: 'Adam Timberlake', email: 'adam.timberlake@gmail.com' },
+39 silly publish   license: 'BSD-2-Clause',
+39 silly publish   bugs: { url: 'https://github.com/Wildhoney/Vik/issues' },
+39 silly publish   dependencies:
+39 silly publish    { 'cli-color': '~0.2.3',
+39 silly publish      'format-json': '~1.0.3',
+39 silly publish      grunt: '~0.4.2',
+39 silly publish      nopt: '^2.2.1',
+39 silly publish      npm: '~1.3.15',
+39 silly publish      parentpath: '~0.2.0' },
+39 silly publish   bin: { vik: './bin/vik.js' },
+39 silly publish   devDependencies: {},
+39 silly publish   readme: 'Vik\n=============\n\n<img src="https://badge.fury.io/js/vik.png" />\n\nUsing <a href="http://semver.org/" target="_blank">Semver</a> to increment your `package.json` (and `bower.json`) npm version based on the major, minor, patch. Your `cwd` can be a child of the directory where your JSON config files reside &ndash; Vik will recursively find them thanks to <a href="https://github.com/jprichardson/node-parentpath" target="_blank">ParentPath</a>!\n\n**Install**: `npm install vik -g` &mdash; *with `-g` (global) npm will automatically add `vik` to your `$PATH`.*\n\nCommands\n-------------\n\n * Increment major: `vik major` or `vik major+`;\n * Increment minor: `vik minor` or `vik minor+`;\n * Increment patch: `vik patch`  or `vik patch+`;\n\nYou can also decrement the versions with minus:\n\n * Decrement major: `vik major-`;\n * Decrement minor: `vik minor-`;\n * Decrement patch: `vik patch-`;\n\nOptions\n-------------\n\n * `-t`/`--tags` &ndash; Git tag the repository with the version;\n * `-p`/`--push` &ndash; Push the Git tag to the repository;\n\n**Example:** `vik minor -tp`.',
+39 silly publish   readmeFilename: 'README.md',
+39 silly publish   homepage: 'https://github.com/Wildhoney/Vik',
+39 silly publish   _id: 'vik@0.2.7',
+39 silly publish   _shasum: '98f5ffb757e6fce7f400a5ebc1f2944428346440',
+39 silly publish   _from: '.' }
+40 verbose url raw vik
+41 verbose url resolving [ 'https://registry.npmjs.org/', './vik' ]
+42 verbose url resolved https://registry.npmjs.org/vik
+43 info trying registry request attempt 1 at 22:50:36
+44 http PUT https://registry.npmjs.org/vik
+45 http 403 https://registry.npmjs.org/vik
+46 verbose headers { date: 'Fri, 23 May 2014 21:50:37 GMT',
+46 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+46 verbose headers   'content-type': 'application/json',
+46 verbose headers   'cache-control': 'max-age=1',
+46 verbose headers   'content-length': '3736',
+46 verbose headers   'accept-ranges': 'bytes',
+46 verbose headers   via: '1.1 varnish',
+46 verbose headers   'x-served-by': 'cache-lcy1134-LCY',
+46 verbose headers   'x-cache': 'MISS',
+46 verbose headers   'x-cache-hits': '0',
+46 verbose headers   'x-timer': 'S1400881836.637791,VS0,VE630',
+46 verbose headers   'keep-alive': 'timeout=10, max=50',
+46 verbose headers   connection: 'Keep-Alive' }
+47 error publish Failed PUT 403
+48 error Error: forbidden cannot modify pre-existing version: 0.2.7
+48 error old={"name":"vik","version":"0.2.7","description":"CLI Semver autoincrement with major, minor, and patch.","main":"bin/vik","scripts":{"test":"grunt test"},"repository":{"type":"git","url":"https://github.com/Wildhoney/Vik.git"},"keywords":["semver","patch","minor","major","versioning","version"],"author":{"name":"Adam Timberlake","email":"adam.timberlake@gmail.com"},"license":"BSD-2-Clause","bugs":{"url":"https://github.com/Wildhoney/Vik/issues"},"dependencies":{"grunt":"~0.4.2","npm":"~1.3.15","cli-color":"~0.2.3","format-json":"~1.0.3","parentpath":"~0.2.0"},"bin":{"vik":"./bin/vik.js"},"devDependencies":{},"homepage":"https://github.com/Wildhoney/Vik","_id":"vik@0.2.7","dist":{"shasum":"7c8e1239e51f040d056e3b3b7993a8cb9d3d55f1","tarball":"http://registry.npmjs.org/vik/-/vik-0.2.7.tgz"},"_from":".","_npmVersion":"1.3.24","_npmUser":{"name":"wildhoney","email":"adam.timberlake@gmail.com"},"maintainers":[{"name":"wildhoney","email":"adam.timberlake@gmail.com"}]}
+48 error new={"name":"vik","version":"0.2.7","description":"CLI Semver autoincrement with major, minor, and patch.","main":"bin/vik","scripts":{"test":"grunt test"},"repository":{"type":"git","url":"https://github.com/Wildhoney/Vik.git"},"keywords":["semver","patch","minor","major","versioning","version","git tag","version update"],"author":{"name":"Adam Timberlake","email":"adam.timberlake@gmail.com"},"license":"BSD-2-Clause","bugs":{"url":"https://github.com/Wildhoney/Vik/issues"},"dependencies":{"cli-color":"~0.2.3","format-json":"~1.0.3","grunt":"~0.4.2","nopt":"^2.2.1","npm":"~1.3.15","parentpath":"~0.2.0"},"bin":{"vik":"./bin/vik.js"},"devDependencies":{},"readme":"Vik\u000a=============\u000a\u000a<img src=\"https://badge.fury.io/js/vik.png\" />\u000a\u000aUsing <a href=\"http://semver.org/\" target=\"_blank\">Semver</a> to increment your `package.json` (and `bower.json`) npm version based on the major, minor, patch. Your `cwd` can be a child of the directory where your JSON config files reside &ndash; Vik will recursively find them thanks to <a href=\"https://github.com/jprichardson/node-parentpath\" target=\"_blank\">ParentPath</a>!\u000a\u000a**Install**: `npm install vik -g` &mdash; *with `-g` (global) npm will automatically add `vik` to your `$PATH`.*\u000a\u000aCommands\u000a-------------\u000a\u000a * Increment major: `vik major` or `vik major+`;\u000a * Increment minor: `vik minor` or `vik minor+`;\u000a * Increment patch: `vik patch`  or `vik patch+`;\u000a\u000aYou can also decrement the versions with minus:\u000a\u000a * Decrement major: `vik major-`;\u000a * Decrement minor: `vik minor-`;\u000a * Decrement patch: `vik patch-`;\u000a\u000aOptions\u000a-------------\u000a\u000a * `-t`/`--tags` &ndash; Git tag the repository with the version;\u000a * `-p`/`--push` &ndash; Push the Git tag to the repository;\u000a\u000a**Example:** `vik minor -tp`.","readmeFilename":"README.md","homepage":"https://github.com/Wildhoney/Vik","_id":"vik@0.2.7","_shasum":"98f5ffb757e6fce7f400a5ebc1f2944428346440","_from":".","_npmVersion":"1.4.7","_npmUser":{"name":"wildhoney","email":"adam.timberlake@gmail.com"},"maintainers":[{"name":"wildhoney","email":"adam.timberlake@gmail.com"}],"dist":{"shasum":"98f5ffb757e6fce7f400a5ebc1f2944428346440","tarball":"http://registry.npmjs.org/vik/-/vik-0.2.7.tgz"}}: vik
+48 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:262:14)
+48 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:200:65)
+48 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+48 error     at Request.EventEmitter.emit (events.js:98:17)
+48 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+48 error     at Request.EventEmitter.emit (events.js:117:20)
+48 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+48 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+48 error     at _stream_readable.js:920:16
+48 error     at process._tickCallback (node.js:415:13)
+49 error If you need help, you may report this *entire* log,
+49 error including the npm and node versions, at:
+49 error     <http://github.com/npm/npm/issues>
+50 error System Darwin 13.1.0
+51 error command "node" "/usr/local/bin/npm" "publish"
+52 error cwd /Users/alexandalexa/Vik
+53 error node -v v0.10.26
+54 error npm -v 1.4.7
+55 verbose exit [ 1, true ]
