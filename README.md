@@ -7,6 +7,8 @@ Using <a href="http://semver.org/" target="_blank">Semver</a> to increment your 
 
 **Install**: `npm install vik -g` &mdash; *with `-g` (global) npm will automatically add `vik` to your `$PATH`.*
 
+<img src="http://i.imgur.com/CU3m3zZ.png" alt="Vik Screenshot" />
+
 Commands
 -------------
 
