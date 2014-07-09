@@ -14,7 +14,7 @@ Commands
 
  * Increment major: `vik major` or `vik major+`;
  * Increment minor: `vik minor` or `vik minor+`;
- * Increment patch: `vik patch`  or `vik patch+`;
+ * Increment patch: `vik patch` or `vik patch+`;
 
 You can also decrement the versions with minus:
 
