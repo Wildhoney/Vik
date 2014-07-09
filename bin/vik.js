@@ -18,7 +18,8 @@
         clc    = require('cli-color'),
         parent = require('parentpath'),
         path   = require('path'),
-        nopt   = require('nopt');
+        nopt   = require('nopt'),
+        pad    = require('pad');
 
     // Define the options for the parameters to be passed in.
     var options      = { tag: Boolean, push: Boolean },
@@ -33,8 +34,16 @@
      * @return {void}
      */
     var outputMessage = function outputMessage(message, colour, backgroundColour) {
-        var outputMessage = clc.xterm(colour).bgXterm(backgroundColour);
-        console.log(outputMessage('  ' + message + '  '));
+
+        var outputMessage = clc.xterm(colour).bgXterm(backgroundColour),
+            paddedMessage = '  ' + message + '.  ';
+
+        console.log();
+        console.log(outputMessage(pad(paddedMessage.length, ' ', ' ')));
+        console.log(outputMessage(paddedMessage));
+        console.log(outputMessage(pad(paddedMessage.length, ' ', ' ')));
+        console.log();
+
     };
 
     if (!$process.argv[2]) {
