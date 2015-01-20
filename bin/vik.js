@@ -112,6 +112,18 @@
                 case ('minor-'): case ('minor--'): minor--; patch = 0; break;
                 case ('patch-'): case ('patch--'): patch--; break;
 
+                default:
+
+                    // Otherwise we're going to assume the developer is attempting to set an explicit
+                    // version number.
+                    var match = which.match(/(\d+)\.(\d+)\.(\d+)/);
+
+                    if (match) {
+                        major = match[1];
+                        minor = match[2];
+                        patch = match[3];
+                    }
+
             }
 
             // Update the version with the updated value, and then execute
