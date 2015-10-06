@@ -13,8 +13,7 @@
     $process.title = 'vik';
 
     // Dependencies for the messages.
-    var sys    = require('sys'),
-        cmd    = require('child_process').exec,
+    var cmd    = require('child_process').exec,
         clc    = require('cli-color'),
         parent = require('parentpath'),
         path   = require('path'),
