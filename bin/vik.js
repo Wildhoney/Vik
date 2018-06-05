@@ -64,7 +64,8 @@
     var supportedModules = [
         { name: 'npm', document: 'package.json' },
         { name: 'Bower', document: 'bower.json' },
-        { name: 'Component', document: 'component.json' }
+        { name: 'Component', document: 'component.json' },
+        { name: 'Expo', document: 'app.json' }
     ];
 
     // Iterate over each file that we wish to change the version for.
@@ -92,6 +93,8 @@
                 pkg     = grunt.file.readJSON(file),
                 version = pkg.version,
                 format  = require('format-json');
+
+            if (name == 'Expo') version = pkg.expo.version;
 
             // Parse the version major.minor.patch.
             var parsed  = version.match(/(\d+)\.(\d+)\.(\d+)/),
@@ -130,7 +133,11 @@
             version = major + '.' + minor + '.' + patch;
 
             // Here we go with the versioning, sunshine!
-            pkg.version = version;
+            if (name === 'Expo') {
+              pkg.expo.version = version;
+            } else {
+              pkg.version = version;
+            }
 
             // Determine if we should be adding the tag to Git.
             if (parseOptions.tag && !taskOptions.tagged) {
@@ -159,5 +166,5 @@
         });
 
     });
-    
+
 })(process);
